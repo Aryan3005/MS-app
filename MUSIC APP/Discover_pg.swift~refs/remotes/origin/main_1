@@ -1,0 +1,101 @@
+//
+//  P.swift
+//  MUSIC APP
+//
+//  Created by Aryan Gupta on 16/02/23.
+//
+
+import SwiftUI
+struct Discover_pg: View {
+    var body: some View {
+        
+        ZStack{
+            LinearGradient(colors: [Color(red:7/225 , green:1/255, blue:76/255),Color(red:3/255 , green:3/255 ,blue:3/255)], startPoint: .top, endPoint: .bottom)
+            //Color(red:0.031 , green:0.004, blue:0.3511)
+                .ignoresSafeArea()
+            VStack{
+                HStack{
+                    
+                    Text("Discover")
+                        .font(.custom("HelveticaNeue",size: 40))
+                        .foregroundColor(.white)
+                        .padding()
+                       
+                    
+                    Spacer()
+                    Image(systemName:"person")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:25)
+                        .padding()
+                        .foregroundColor(Color.white)
+                    
+                                        }
+                Text("Recommended for you")
+                    .font(.custom("HelveticaNeue", size: 16))
+                    .foregroundColor(Color.gray)
+                    .frame(width: 185 ,height: 24 , alignment: .leading)
+                    .padding(.top,24)
+                    .padding(.leading,UIScreen.main.bounds.width-560)
+                    .padding(.bottom,16)
+                ScrollView{
+                    Recom_songs(artist_name: "Lil Nas X",listeners: "3.2" , poster_image:"Lilnasx")
+                    Recom_songs(artist_name: "The Weekend",listeners: "6.4" , poster_image:"Weeknd")
+
+                }
+                Spacer()
+
+            }}
+        
+        }
+        
+            
+    }
+
+
+
+
+struct Discover_pg_Previews: PreviewProvider {
+    static var previews: some View {
+        Discover_pg()
+    }
+}
+
+struct Recom_songs:View{
+    
+    let artist_name:String
+    let listeners:String
+    let poster_image:String
+    
+    var body: some View{
+
+   
+        ZStack(alignment: .leading){
+                Rectangle()
+                .frame(width: 335,height: 132)
+                .cornerRadius(30)
+                .foregroundColor(Color(red: 32/255, green: 34/255, blue: 93/255))
+                VStack(alignment: .leading){
+                    Text(artist_name)
+                        .foregroundColor(.white)
+                        .font(.custom("HelveticaNeue",size: 24))
+                    Text(listeners+"M "+"Listeners")
+                        .foregroundColor(.gray)
+                        .font(.custom("HelveticaNeue",size: 14))
+                    ZStack{
+                        Rectangle().frame(width: 40,height: 40).cornerRadius(100).foregroundColor(.white)
+                        Image(systemName:"play.fill")
+                    }
+                }
+                    //.frame(width: 100,height: 105)
+                    .padding()
+
+                Image(poster_image)
+                    .cornerRadius(20)
+                    .padding(.leading,205)
+
+            
+            }
+    }
+}
+
