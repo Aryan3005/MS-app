@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F035B82729A2E8190009AE90 /* pg2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035B82629A2E8190009AE90 /* pg2.swift */; };
+		F035B82729A2E8190009AE90 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035B82629A2E8190009AE90 /* lib.swift */; };
 		F09CA394299E5BD600A9A99F /* MUSIC_APPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */; };
 		F09CA396299E5BD600A9A99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09CA395299E5BD600A9A99F /* ContentView.swift */; };
 		F09CA398299E5BD800A9A99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09CA397299E5BD800A9A99F /* Assets.xcassets */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F035B82629A2E8190009AE90 /* pg2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pg2.swift; sourceTree = "<group>"; };
+		F035B82629A2E8190009AE90 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		F09CA390299E5BD600A9A99F /* MUSIC APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MUSIC APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSIC_APPApp.swift; sourceTree = "<group>"; };
 		F09CA395299E5BD600A9A99F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -102,7 +102,7 @@
 				F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */,
 				F09CA395299E5BD600A9A99F /* ContentView.swift */,
 				F09CA3F3299E7A7600A9A99F /* Discover_pg.swift */,
-				F035B82629A2E8190009AE90 /* pg2.swift */,
+				F035B82629A2E8190009AE90 /* lib.swift */,
 				F09CA397299E5BD800A9A99F /* Assets.xcassets */,
 				F09CA3F6299E9FCF00A9A99F /* Poppins-Black.ttf */,
 				F09CA399299E5BD800A9A99F /* Preview Content */,
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09CA3F4299E7A7600A9A99F /* Discover_pg.swift in Sources */,
-				F035B82729A2E8190009AE90 /* pg2.swift in Sources */,
+				F035B82729A2E8190009AE90 /* lib.swift in Sources */,
 				F09CA396299E5BD600A9A99F /* ContentView.swift in Sources */,
 				F09CA394299E5BD600A9A99F /* MUSIC_APPApp.swift in Sources */,
 			);

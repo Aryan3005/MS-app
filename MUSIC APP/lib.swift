@@ -70,14 +70,32 @@ struct lib: View {
                         
                         Spacer()
                         
-                        Text("liked songs")
-                            .foregroundColor(.white)
+                        Text("Liked Songs")
+                            
+                            .foregroundColor(.gray)
                             .font(.custom("Helveticaneue-bold", size: 18))
+                            .padding(.trailing, 250.0)
                         
                         Spacer()
-                            Recom_songs(artist_name: "Lil Nas X",listeners: "3.2" , poster_image:"Lilnasx")
-                            Recom_songs(artist_name: "The Weekend",listeners: "6.4" , poster_image:"Weeknd")
+                        ScrollView{
+                            libr_songs(artist_name: "Lil Nas X",song_name: "Fucking star boy" , poster_image:"Lilnasx")
                             
+                            libr_songs(artist_name: "The Weekend ",song_name:"Closer" , poster_image:"Weeknd")
+                            libr_songs(artist_name: "Lil Nas X",song_name: "Fucking star boy" , poster_image:"Lilnasx")
+                            
+                            libr_songs(artist_name: "The Weekend ",song_name:"Closer" , poster_image:"Weeknd")
+                            libr_songs(artist_name: "Lil Nas X",song_name: "Fucking star boy" , poster_image:"Lilnasx")
+                            
+                            libr_songs(artist_name: "The Weekend ",song_name:"Closer" , poster_image:"Weeknd")
+                            libr_songs(artist_name: "Lil Nas X",song_name: "Fucking star boy" , poster_image:"Lilnasx")
+                            
+                            libr_songs(artist_name: "The Weekend ",song_name:"Closer" , poster_image:"Weeknd")
+                            libr_songs(artist_name: "Lil Nas X",song_name: "Fucking star boy" , poster_image:"Lilnasx")
+                           
+                            libr_songs(artist_name: "The Weekend ",song_name:"Closer" , poster_image:"Weeknd")
+                            
+                            
+                        }
                         Spacer()
                     
                         
@@ -92,23 +110,14 @@ struct lib: View {
                         
                         
                     }
-                    
-                    
-                
-                
-                
-                
+                    Buttom_navbar().padding(.top,UIScreen.main.bounds.height-200)
             }
             
-            
-            
+          
             
         }
         
-        
-        
-        
-        
+    
         
     }
     }
@@ -121,10 +130,26 @@ struct lib_Previews:PreviewProvider {
        lib()
     }
 }
+
+struct Bottom_navbar:View{
+    var body: some View{
+        HStack{
+           
+            Image("Music_icon").padding(20)
+            Image("Libary_icon").padding(20)
+            Image("Search_icon").padding(20)
+        }
+        .frame(width: 232,height: 88)
+            .background(BlurView(style: .systemUltraThinMaterial))
+            .cornerRadius(40)
+
+    }
+}
+
 struct libr_songs:View{
     
     let artist_name:String
-    let listeners:String
+    let song_name:String
     let poster_image:String
     
     var body: some View{
@@ -132,36 +157,46 @@ struct libr_songs:View{
         
         
         ZStack(alignment: .leading){
-            Rectangle()
-                .frame(width: 335,height: 132)
+                Rectangle()
+                .frame(width:.infinity,height: 80)
                 .cornerRadius(30)
                 .foregroundColor(Color(red: 32/255, green: 34/255, blue: 93/255))
-                VStack(alignment: .leading){
-                    Text(artist_name)
-                        .foregroundColor(.white)
-                        .font(.custom("HelveticaNeue",size: 24))
-                    Text(listeners+"M "+"Listeners")
-                        .foregroundColor(.gray)
-                        .font(.custom("HelveticaNeue",size: 14))
-                        ZStack{
-                            Rectangle().frame(width: 40,height: 40).cornerRadius(100).foregroundColor(.white)
-                            Image(systemName:"play.fill")
+                HStack{
+                    VStack(alignment:.leading){
+                        Text(artist_name)
+                            .foregroundColor(.white)
+                            .font(.custom("HelveticaNeue",size: 20))
+                            .padding(.leading, 100.0)
+                        
+                        Text(song_name)
+                            .foregroundColor(Color.gray)
+                            .padding(.leading,100)
+                            
+                        
+                    }
+                        
                 }
-            }
-                //.frame(width: 100,height: 105)
-                .padding()
+                    //.frame(width: 100,height: 105)
+                    .padding()
 
-            Image(poster_image)
-                .cornerRadius(20)
-                .padding(.leading,205)
+                Image(poster_image)
+                    .resizable()
+                    .frame(width:80,height: 80)
+                    .cornerRadius(24)
+                    
+                    
 
-            
-            
-            
-            
-            
             
         }
-        
     }
+}
+struct BluprView: UIViewRepresentable {
+    let style: UIBlurEffect.Style
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: style))
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
 }

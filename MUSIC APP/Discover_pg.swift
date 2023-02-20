@@ -23,12 +23,17 @@ struct Discover_pg: View {
                        
                     
                     Spacer()
-                    Image(systemName:"person")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:25)
-                        .padding()
-                        .foregroundColor(Color.white)
+                    NavigationLink{
+                        lib()
+                    }label: {
+                        Image(systemName:"person")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:25)
+                            .padding()
+                            .foregroundColor(Color.white)
+                    }
+                   
                     
                                         }
 
@@ -131,7 +136,12 @@ struct Discover_pg_Previews: PreviewProvider {
 struct Buttom_navbar:View{
     var body: some View{
         HStack{
-            Image("Music_icon").padding(20)
+            NavigationLink{
+               Discover_pg()
+            }label: {
+                Image("Music_icon").padding(20)
+            }
+            
             Image("Libary_icon").padding(20)
             Image("Search_icon").padding(20)
         }
@@ -154,7 +164,7 @@ struct Recom_songs:View{
    
         ZStack(alignment: .leading){
                 Rectangle()
-                .frame(width: 335,height: 132)
+                .frame(width: 345,height: 132)
                 .cornerRadius(30)
                 .foregroundColor(Color(red: 32/255, green: 34/255, blue: 93/255))
                 VStack(alignment: .leading){
