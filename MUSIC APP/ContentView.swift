@@ -32,7 +32,7 @@ struct ContentView: View {
                     Spacer()
 
                         NavigationLink{
-                            Discover_pg().navigationBarBackButtonHidden()
+                            Api_try_Spotify().navigationBarBackButtonHidden()
                         }label: {
                             Text("NEXT")
                                 .frame(width: 250 , height: 50)

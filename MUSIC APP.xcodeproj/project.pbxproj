@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60534C129ABD9D50000FBC9 /* Api_try_Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60534C029ABD9D50000FBC9 /* Api_try_Spotify.swift */; };
+		B6FCD12029A534F000A3EAE6 /* Api_try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FCD11F29A534F000A3EAE6 /* Api_try.swift */; };
 		F035B82729A2E8190009AE90 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035B82629A2E8190009AE90 /* lib.swift */; };
 		F09CA394299E5BD600A9A99F /* MUSIC_APPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */; };
 		F09CA396299E5BD600A9A99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09CA395299E5BD600A9A99F /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60534C029ABD9D50000FBC9 /* Api_try_Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api_try_Spotify.swift; sourceTree = "<group>"; };
+		B6FCD11F29A534F000A3EAE6 /* Api_try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api_try.swift; sourceTree = "<group>"; };
 		F035B82629A2E8190009AE90 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		F09CA390299E5BD600A9A99F /* MUSIC APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MUSIC APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUSIC_APPApp.swift; sourceTree = "<group>"; };
@@ -99,7 +103,9 @@
 		F09CA392299E5BD600A9A99F /* MUSIC APP */ = {
 			isa = PBXGroup;
 			children = (
+				B60534C029ABD9D50000FBC9 /* Api_try_Spotify.swift */,
 				F09CA393299E5BD600A9A99F /* MUSIC_APPApp.swift */,
+				B6FCD11F29A534F000A3EAE6 /* Api_try.swift */,
 				F09CA395299E5BD600A9A99F /* ContentView.swift */,
 				F09CA3F3299E7A7600A9A99F /* Discover_pg.swift */,
 				F035B82629A2E8190009AE90 /* lib.swift */,
@@ -268,7 +274,9 @@
 				F09CA3F4299E7A7600A9A99F /* Discover_pg.swift in Sources */,
 				F035B82729A2E8190009AE90 /* lib.swift in Sources */,
 				F09CA396299E5BD600A9A99F /* ContentView.swift in Sources */,
+				B60534C129ABD9D50000FBC9 /* Api_try_Spotify.swift in Sources */,
 				F09CA394299E5BD600A9A99F /* MUSIC_APPApp.swift in Sources */,
+				B6FCD12029A534F000A3EAE6 /* Api_try.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
