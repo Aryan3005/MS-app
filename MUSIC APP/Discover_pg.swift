@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
+
 
 struct Discover_pg: View {
-    @State var User_data: [Music_data]=[]
+    @State var User_data: [FeedResponse_pg]=[]
 
     var body: some View {
         
@@ -61,8 +63,8 @@ struct Discover_pg: View {
                     ScrollView(.horizontal){
                         HStack{
                             ForEach(User_data ,id: \.id){song in
-                                ForEach(song.data , id: \.id) { i in
-                                    Artist_view(artist_name: i.title ,poster_image: i.picture)
+                                ForEach(song.tracks.data) { i in
+                                    Artist_view(artist_name: i.title ,poster_image: i.artist.picture , preview_q: i.preview)
                                 }
                                 
                             }
@@ -78,8 +80,8 @@ struct Discover_pg: View {
                                 ScrollView(.horizontal){
                                     HStack{
                                         ForEach(User_data ,id: \.id){song in
-                                            ForEach(song.data , id: \.id) { i in
-                                                Artist_view(artist_name: i.title ,poster_image: i.picture)
+                                            ForEach(song.tracks.data) { i in
+                                                Artist_view(artist_name: i.title ,poster_image: i.artist.picture, preview_q: i.preview)
                                             }
                                         }
                                         
@@ -96,8 +98,8 @@ struct Discover_pg: View {
                                     ScrollView(.horizontal){
                                         HStack{
                                             ForEach(User_data ,id: \.id){song in
-                                                ForEach(song.data , id: \.id) { i in
-                                                    Artist_view(artist_name: i.title ,poster_image: i.picture)
+                                                ForEach(song.tracks.data) { i in
+                                                    Artist_view(artist_name: i.title ,poster_image: i.artist.picture, preview_q: i.preview)
                                                 }
                                             }
                                         }
@@ -117,13 +119,13 @@ struct Discover_pg: View {
     func Fetch_songs_top_50(){
         
         
-        let request = URL(string: "https://api.deezer.com/user/2529/playlists")!
+        let request = URL(string: "https://api.deezer.com/chart")!
         
         
         URLSession.shared.dataTask(with: request ){data , response, error in
             if let data=data{
                 do{
-                    let decoded_r = try JSONDecoder().decode(Music_data.self, from: data)
+                    let decoded_r = try JSONDecoder().decode(FeedResponse_pg.self, from: data)
                     User_data=[decoded_r]
                     print(decoded_r)
                 }catch{
@@ -138,14 +140,25 @@ struct Discover_pg: View {
     }
 
 
-struct Music_data: Codable, Identifiable{
+struct FeedResponse_pg: Codable ,Identifiable{
     let id = UUID()
-    let data : [Data_m]
+    let tracks : Tracks_pg
 }
 
-struct Data_m: Codable, Identifiable{
+struct Tracks_pg: Codable,Identifiable{
+    let id = UUID().uuidString
+    let data : [Data_s_pg]
+}
+
+struct Data_s_pg: Codable,Identifiable{
     let id : Int
     let title : String
+    let preview : URL
+    let artist : artist_pg
+}
+
+struct artist_pg: Codable,Identifiable{
+    let id : Int
     let picture : URL
 }
 
@@ -218,15 +231,32 @@ struct Artist_view: View{
     
     let artist_name:String
     let poster_image:URL
+    let preview_q:URL
+    @State var width_image : CGFloat = 70
+    @State var hight_image : CGFloat = 70
+    @State var song_playing : Bool = false
     
     var body: some View{
+        let player = AVPlayer()
         VStack{
             
             AsyncImage(url:poster_image) { image in
                 image
                     .resizable()
-                    .frame(width: 80,height: 80)
+                    .frame(width: width_image,height: hight_image)
                     .cornerRadius(50)
+                    .onTapGesture {
+                        if song_playing == false {
+                            let playerItem = AVPlayerItem(url: preview_q)
+                            player.replaceCurrentItem(with: playerItem)
+                            player.play()
+                            song_playing = true
+                        }
+                        else{
+                            player.pause()
+                        }
+                        
+                    }
             } placeholder: {
                 ProgressView()
             }
